@@ -22,3 +22,19 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+.controller("AppCtrl", function($scope, $http){
+  
+
+  $scope.login = function(data) {
+    
+    $http({
+      url: 'http://do.vnku.net/ionic.php',
+      method: 'POST',
+      data: {username:data.username, password:data.password, apikey:'hw62h273h82ybs992'}
+      //withCredentials: true,
+      //headers: {'Authorization':data.username+':'+data.password+''}
+    }).success(function(result) {
+      console.log(result);
+    });
+  } 
+});
